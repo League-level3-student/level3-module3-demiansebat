@@ -65,12 +65,27 @@ public class _01_StringMethods {
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
     	//***need to for loop through the string***
-        return 0;
+    	int sum=0;
+    	for (int i = 0; i < s.length(); i++) {
+    		if (Character.isDigit(s.charAt(i))) {
+				
+			
+   int num=Integer.parseInt(""+s.charAt(i));
+		sum=sum+num;
+		}
+    	}
+        return sum;
     }
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+    	int times=0;
+    	for (int i = 0; i < s.length(); i++) {
+			if (s.contains(substring)) {
+				times++;
+			}
+		}
+        return times;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
