@@ -1,6 +1,10 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
  * Visit the JavaDocs for the String class to view everything you can do with a String.
@@ -80,43 +84,73 @@ public class _01_StringMethods {
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
     	int times=0;
+    	 List<Integer> bruh=new ArrayList<>();
     	for (int i = 0; i < s.length(); i++) {
-			if (s.contains(substring)) {
-				times++;
-			}
+    		Pattern pattern = Pattern.compile(substring);
+            Matcher match = pattern.matcher(s);
+            while(match.find(i)){
+                times++;
+                bruh.add(match.start());
+                i = match.start() + 1;
 		}
-        return times;
+    }
+    	return times;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
-        return null;
+    	
+    	
+return Utilities.encrypt(s.getBytes(), (byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+
+        return Utilities.decrypt(s, (byte)key);
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	int times=0;
+    	      String[] subStrings = s.split(" ");
+    	      for(String subString: subStrings) {
+    	    	  if (subString.endsWith(substring)) {
+        	    	  times++;
+				}
+
+    	      }
+    	      return times;
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
+    	
         return 0;
     }
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
+
+    public static void main(String[] args)
+    {
+    	palindrome("att");
+    }    
+    
     public static boolean palindrome(String s) {
-        return true;
+    	char[]first=s.toCharArray();
+    	char[]last=s.toCharArray();
+    	for (int i = 0; i < s.length()/2; i++) {
+    		if (first[i]!=last[s.length()-1-i]) {
+				return false;
+			}
+		}
+    	return true;
     }
 }
 
