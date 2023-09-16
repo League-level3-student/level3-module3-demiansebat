@@ -11,6 +11,7 @@ class _03_StringBuilderTest {
     void appendTest() {
         char[] chars = { 'a', 'p', 'p', 'l', 'e', 's' };
         assertEquals("I like apples", _03_StringBuilder.append("I like ", chars));
+       
     }
     
     @Test
