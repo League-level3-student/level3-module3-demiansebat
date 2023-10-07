@@ -23,10 +23,16 @@ public class _01_TheWave {
     public static ArrayList<String> wave(String str) {
     	ArrayList<String> end = new ArrayList();
         for (int i = 0; i < str.length(); i++) {
-char character=Character.toUpperCase(str.charAt(i));
-end.add(str);
-System.out.println(str);
-str.toLowerCase();
+        	String bruh=str.charAt(i)+"";
+        	if (bruh.equals(" ")) {
+				continue;
+			}
+String letter=str.charAt(i)+"";
+String start=str.substring(0,i);
+String last=str.substring(i+1);
+String second=start+letter.toUpperCase()+last;
+end.add(second);
+System.out.println(second);
 		}
         return end;
     }
