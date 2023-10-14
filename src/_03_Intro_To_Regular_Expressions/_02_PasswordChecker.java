@@ -21,9 +21,12 @@ import javax.swing.JPasswordField;
  */
 
 public class _02_PasswordChecker implements KeyListener {
+
+
     /*
      * 1. Check a minimum of 8 characters
      */
+	 String regEx = "[\\w]{8,}";
     static final String regexCriteria1 = "";
 
     /*
