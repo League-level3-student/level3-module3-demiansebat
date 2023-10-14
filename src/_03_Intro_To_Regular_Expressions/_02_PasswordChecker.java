@@ -32,6 +32,7 @@ public class _02_PasswordChecker implements KeyListener {
     /*
      * 2. Check there is at least 1 number, i.e. a digit 0-9
      */
+    //yes
     static final String regexCriteria2 = "";
 
     /*
